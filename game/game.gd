@@ -1,10 +1,10 @@
 extends Spatial
 
 func _ready():
-	pass # Replace with function body.
+	#OS.set_window_maximized(true)
+	pass
 	
-	
-func _unhandled_key_input(event):
+func _unhandled_key_input(event: InputEventKey) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 

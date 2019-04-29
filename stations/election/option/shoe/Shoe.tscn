@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://stations/election/option/shoe/Shoe.dae" type="PackedScene" id=1]
+
+[node name="Shoe" index="0" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.672441, 0 )
+
+[node name="lace001" parent="." index="0"]
+transform = Transform( 0.106223, -0.00673553, -0.093671, 0.00416397, 0.141619, -0.0054613, 0.0938205, 0.00134058, 0.106296, -2, 0, 0 )

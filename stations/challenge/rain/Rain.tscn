@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://stations/challenge/rain/trace_01.png" type="Texture" id=1]
+[ext_resource path="res://stations/challenge/rain/rain.gd" type="Script" id=2]
+[ext_resource path="res://stations/challenge/rain/smoke_04.png" type="Texture" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_unshaded = true
+params_blend_mode = 1
+params_cull_mode = 2
+params_billboard_mode = 2
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 2
+emission_box_extents = Vector3( 3, 3, 1 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 20.0
+angular_velocity = 1.90507e+31
+
+[sub_resource type="PlaneMesh" id=3]
+
+[sub_resource type="PlaneMesh" id=4]
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_unshaded = true
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="BoxShape" id=6]
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_transparent = true
+flags_unshaded = true
+params_blend_mode = 1
+params_cull_mode = 2
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 1, 1, 1, 0.4 )
+albedo_texture = ExtResource( 3 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+emission_shape = 2
+emission_box_extents = Vector3( 3, 0.2, 3 )
+spread = 100.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.2
+angular_velocity = 0.0
+
+[sub_resource type="PlaneMesh" id=9]
+
+[node name="Rain" type="Spatial"]
+
+[node name="Rain" type="Particles" parent="."]
+transform = Transform( 0.999971, -0.0060359, -0.00459223, -0.00450027, 0.0151636, -0.999875, 0.00610477, 0.999867, 0.015136, 0, 0, 0 )
+material_override = SubResource( 1 )
+amount = 100
+visibility_aabb = AABB( -3.93275, -4, -4, 7.84305, 8, 8 )
+process_material = SubResource( 2 )
+draw_pass_1 = SubResource( 3 )
+script = ExtResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 4.71929, 0, 0, 0, 1.44977, 0, 0, 0, 4.97841, 0, -4.24477, 0 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 0.01, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 6 )
+
+[node name="Nube" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8183, 0 )
+material_override = SubResource( 7 )
+amount = 250
+process_material = SubResource( 8 )
+draw_pass_1 = SubResource( 9 )

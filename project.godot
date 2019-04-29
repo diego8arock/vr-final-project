@@ -19,6 +19,10 @@ config/name="vr-final-project"
 run/main_scene="res://game/Game.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GameManager="*res://autoload/game_manager.gd"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://game/game.gd" type="Script" id=1]
-[ext_resource path="res://stations/challenge/Challenge.tscn" type="PackedScene" id=2]
-[ext_resource path="res://actors/player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://actors/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://stations/challenge/rain/Rain.tscn" type="PackedScene" id=3]
+[ext_resource path="res://stations/election/Election.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -22,8 +23,11 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="Floor"]
 shape = SubResource( 2 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.27096, 0 )
 
-[node name="Challenge" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.31728, 0.180078, -12.717 )
+[node name="Election" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -9.001 )
+
+[node name="Rain" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.25, 12.937 )
