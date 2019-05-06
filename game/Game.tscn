@@ -1,33 +1,17 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://game/game.gd" type="Script" id=1]
-[ext_resource path="res://actors/player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://stations/challenge/rain/Rain.tscn" type="PackedScene" id=3]
-[ext_resource path="res://stations/election/Election.tscn" type="PackedScene" id=4]
-
-[sub_resource type="PlaneMesh" id=1]
-
-[sub_resource type="BoxShape" id=2]
-extents = Vector3( 31.1876, 0.001, 30.6189 )
+[ext_resource path="res://world/lobby/Lobby.tscn" type="PackedScene" id=2]
+[ext_resource path="res://actors/player/Player.tscn" type="PackedScene" id=3]
 
 [node name="Game" type="Spatial"]
 script = ExtResource( 1 )
 
-[node name="Floor" type="StaticBody" parent="."]
+[node name="Lobby" parent="." instance=ExtResource( 2 )]
 
-[node name="MeshInstance" type="MeshInstance" parent="Floor"]
-transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, 0, 0, 0 )
-mesh = SubResource( 1 )
-material/0 = null
+[node name="Player" parent="Lobby" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.388517, 1.97788, -0.6291 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Floor"]
-shape = SubResource( 2 )
-
-[node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.27096, 0 )
-
-[node name="Election" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -9.001 )
-
-[node name="Rain" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.25, 12.937 )
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.0976, 0 )
+omni_range = 44.4

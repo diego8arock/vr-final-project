@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://stations/election/Election.tscn" type="PackedScene" id=1]
+[ext_resource path="res://stations/challenge/Challenge.tscn" type="PackedScene" id=2]
+[ext_resource path="res://world/room/Wall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://world/room/Door.tscn" type="PackedScene" id=4]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 10, 0.1, 10 )
+
+[sub_resource type="PlaneMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[node name="Room" type="StaticBody"]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 5 )
+
+[node name="Election" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.14, 0.1, -7.44168 )
+
+[node name="Challenge" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.104, 0.1, 4.90439 )
+
+[node name="Spatial" type="Spatial" parent="."]
+editor/display_folded = true
+
+[node name="Wall" parent="Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.077, 4, 10.242 )
+
+[node name="Wall2" parent="Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.077, 4, -10.067 )
+
+[node name="Wall3" parent="Spatial" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.002, 4, 0.138 )
+
+[node name="Wall4" parent="Spatial" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -0.475952, 0, -2.08045e-08, 9.70882, 4, 6.33197 )
+
+[node name="Wall6" parent="Spatial" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -0.475952, 0, -2.08045e-08, 9.70882, 4, -6.36276 )
+
+[node name="Wall7" parent="Spatial" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -0.475952, 0, -2.08045e-08, 9.70882, 7.98592, -0.46978 )
+
+[node name="Wall5" parent="Spatial" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -1.31134e-07, -1, 0, 3, -4.37114e-08, -0.113334, 8.05665, 0.138 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.08177, 6.07112, 4.32738 )
+shadow_enabled = true
+omni_range = 24.7
+omni_shadow_mode = 0
+omni_shadow_detail = 0
+
+[node name="Door" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.84928, 2.03824, 0 )

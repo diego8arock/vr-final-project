@@ -4,14 +4,17 @@ extends KinematicBody
 const GRAVITY = 9.8
 const OPTION_NODE_NAME = "Option"
 
+#paths
+var path = []
+var path_ind = 0
+onready var nav = get_parent()
+
 #mouse sensitivity
 export(float,0.1,1.0) var sensitivity_x = 0.5
 export(float,0.1,1.0) var sensitivity_y = 0.4
 
 #physics
-export(float,10.0, 30.0) var speed = 15.0
-export(float,1.0, 10.0) var mass = 8.0
-export(float,0.1, 3.0, 0.1) var gravity_scl = 1.0
+const move_speed : float = 5.0
 
 #instances ref
 onready var player_cam = $Camera
@@ -21,18 +24,13 @@ onready var player_hand = $RightArm/RightHand
 
 #variables
 var mouse_motion = Vector2()
-var gravity_speed = 0
 var is_option_on_ray_cast = false
 var option_node_selected = null
 var is_option_choosed = false
 
-#signals
-signal set_origin(new_origin)
-
 func _ready() -> void:
+	add_to_group("units")
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	pass
-
 
 func _physics_process(delta: float) -> void:
 	
@@ -43,17 +41,14 @@ func _physics_process(delta: float) -> void:
 	player_arm.rotation.x = lerp(player_arm.rotation.x, player_cam.rotation.x, 0.2)
 	mouse_motion = Vector2()
 	
-	#gravity
-	gravity_speed -= GRAVITY * gravity_scl * mass * delta
-	
-	#character moviment
-	var velocity = Vector3()
-	velocity = _axis() * speed
-	velocity.y = gravity_speed
-	
-	gravity_speed = move_and_slide(velocity).y
-	
 	is_option_on_ray_cast = _detect_ray_cast_collision()	
+	
+	if path_ind < path.size():
+		var move_vec = (path[path_ind] - global_transform.origin)
+		if move_vec.length() < 0.1:
+			path_ind += 1
+		else:
+			move_and_slide(move_vec.normalized() * move_speed, Vector3(0, 1, 0))
 	
 	#if is_option_choosed:
 	#	emit_signal("set_origin", player_hand.global_transform.origin)
@@ -111,4 +106,8 @@ func _select_option() -> void:
 		connect("set_origin", option_node_selected, "set_origin") 	
 		is_option_choosed = true
 		print(option_node_selected)
-	pass
+	
+func move_to(target_pos):
+	print("move to")
+	path = nav.get_simple_path(global_transform.origin, target_pos)
+	path_ind = 0
