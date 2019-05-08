@@ -6,7 +6,7 @@
 [sub_resource type="CubeMesh" id=1]
 
 [sub_resource type="BoxShape" id=2]
-extents = Vector3( 1, 4.66864, 0.576489 )
+extents = Vector3( 3.12809, 4.66864, 3.37919 )
 
 [sub_resource type="PlaneMesh" id=3]
 

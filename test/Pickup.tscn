@@ -8,7 +8,7 @@
 albedo_color = Color( 0, 0.329412, 0.956863, 1 )
 
 [sub_resource type="SphereShape" id=3]
-radius = 0.212877
+radius = 0.928433
 
 [node name="Pickup" type="Area" groups=[
 "pickup",

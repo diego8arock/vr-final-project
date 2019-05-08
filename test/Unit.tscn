@@ -34,7 +34,6 @@ collide_with_areas = true
 collide_with_bodies = false
 
 [node name="Node" type="Node" parent="Camera"]
-editor/display_folded = true
 
 [node name="Crosshair" type="Sprite" parent="Camera/Node"]
 scale = Vector2( 0.1, 0.1 )
@@ -42,3 +41,8 @@ texture = ExtResource( 3 )
 
 [node name="Position3D" type="Position3D" parent="Camera"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.45362 )
+
+[node name="PickupTimer" type="Timer" parent="Camera"]
+wait_time = 1.5
+one_shot = true
+[connection signal="timeout" from="Camera/PickupTimer" to="Camera" method="_on_PickupTimer_timeout"]

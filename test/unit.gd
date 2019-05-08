@@ -13,8 +13,26 @@ onready var original_position_y : float = global_transform.origin.y
 const move_speed : float = 5.0
 var rotation_x = 0
 
+const vrpnClient = preload("res://bin/vrpnClient.gdns")
+var clientTracker = null
+
 func _ready() -> void:
+	start_vr()
 	pass 
+
+func _process(delta: float) -> void:
+	clientTracker.mainloop()	
+	
+	if not(clientTracker.quat[0] == 0 and clientTracker.quat[1] == 0 and clientTracker.quat[2] == 0):
+		var adjust_x = clientTracker.quat[0] * 10
+		DebugManager.debug("clientTracker", adjust_x)
+		
+		if adjust_x < -0.7:
+			rotation_x = -3
+		elif adjust_x > 0.7:
+			rotation_x = 3
+		else:
+			rotation_x = 0
 
 func _physics_process(delta: float) -> void:
 	
@@ -44,4 +62,10 @@ func _input(event: InputEvent) -> void:
 
 func move_to(target_pos) -> void:
 	path = nav.get_simple_path(global_transform.origin, target_pos)
-	path_ind = 0		
+	path_ind = 0	
+	
+func start_vr() -> void:
+	clientTracker = vrpnClient.new()
+	clientTracker.connect("Tracker0@10.3.136.131")
+
+	

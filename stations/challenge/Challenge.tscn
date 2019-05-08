@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://stations/challenge/fire/Fire.tscn" type="PackedScene" id=1]
+[ext_resource path="res://stations/challenge/rain/Rain.tscn" type="PackedScene" id=2]
+[ext_resource path="res://stations/challenge/cat/Cat.tscn" type="PackedScene" id=3]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -24,3 +26,14 @@ shape = SubResource( 3 )
 
 [node name="Fire" parent="Challenges" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56172, 0 )
+visible = false
+
+[node name="Rain" parent="Challenges" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.71061, 0 )
+visible = false
+
+[node name="Cat" parent="Challenges" instance=ExtResource( 3 )]
+editor/display_folded = true
+transform = Transform( -0.217772, 0, -0.206338, 0, 0.3, 0, 0.206338, 0, -0.217772, 0, 0, 0 )
+
+[editable path="Challenges/Cat"]

@@ -8,9 +8,14 @@ func _ready() -> void:
 
 func set_player(origin) -> void:
 	player_origin = origin
+	player_origin.global_transform.origin.y = 2.5
+	$CollisionShape.disabled = true
+	
+func unset_player() -> void:
+	player_origin = null
+	$CollisionShape.disabled = false
 
 func _process(delta: float) -> void:
 	
 	if player_origin:
-		var new_origin = player_origin.global_transform.origin
-		global_transform.origin = new_origin
+		global_transform.origin = player_origin.global_transform.origin
