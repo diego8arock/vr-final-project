@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/WhiteFur2A.png-d8b41feab6b8a43ded9b72c9003e48de.stex"
+path="res://.import/WhiteFur2A.png-01b4d1dedfc2a4ee82e209d46e0d113f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://stations/challenge/cat/WhiteFur2A.png"
-dest_files=[ "res://.import/WhiteFur2A.png-d8b41feab6b8a43ded9b72c9003e48de.stex" ]
+source_file="res://assets/cat/WhiteFur2A.png"
+dest_files=[ "res://.import/WhiteFur2A.png-01b4d1dedfc2a4ee82e209d46e0d113f.stex" ]
 
 [params]
 

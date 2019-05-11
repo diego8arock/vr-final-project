@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/smoke_04.png-73ed00ef20b35d1f67c78f1d0a484b8f.s3tc.stex"
-path.etc2="res://.import/smoke_04.png-73ed00ef20b35d1f67c78f1d0a484b8f.etc2.stex"
+path.s3tc="res://.import/metal-splotchy-albedo.png-f8471a147651deb28ab800f702711ec6.s3tc.stex"
+path.etc2="res://.import/metal-splotchy-albedo.png-f8471a147651deb28ab800f702711ec6.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://stations/challenge/rain/smoke_04.png"
-dest_files=[ "res://.import/smoke_04.png-73ed00ef20b35d1f67c78f1d0a484b8f.s3tc.stex", "res://.import/smoke_04.png-73ed00ef20b35d1f67c78f1d0a484b8f.etc2.stex" ]
+source_file="res://assets/door/metal-splotchy-albedo.png"
+dest_files=[ "res://.import/metal-splotchy-albedo.png-f8471a147651deb28ab800f702711ec6.s3tc.stex", "res://.import/metal-splotchy-albedo.png-f8471a147651deb28ab800f702711ec6.etc2.stex" ]
 
 [params]
 

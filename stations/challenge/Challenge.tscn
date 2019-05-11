@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://stations/challenge/fire/Fire.tscn" type="PackedScene" id=1]
-[ext_resource path="res://stations/challenge/rain/Rain.tscn" type="PackedScene" id=2]
-[ext_resource path="res://stations/challenge/cat/Cat.tscn" type="PackedScene" id=3]
+[ext_resource path="res://stations/challenge/challenge.gd" type="Script" id=1]
+[ext_resource path="res://stations/challenge/fire/Fire.tscn" type="PackedScene" id=2]
+[ext_resource path="res://stations/challenge/rain/Rain.tscn" type="PackedScene" id=3]
+[ext_resource path="res://stations/challenge/cat/Cat.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -13,6 +14,7 @@ albedo_color = Color( 0.027451, 0.564706, 0.960784, 1 )
 extents = Vector3( 4.98263, 0.001, 5.31386 )
 
 [node name="Challenge" type="StaticBody"]
+script = ExtResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0 )
@@ -24,16 +26,17 @@ shape = SubResource( 3 )
 
 [node name="Challenges" type="Spatial" parent="."]
 
-[node name="Fire" parent="Challenges" instance=ExtResource( 1 )]
+[node name="Fire" parent="Challenges" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56172, 0 )
 visible = false
 
-[node name="Rain" parent="Challenges" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.71061, 0 )
+[node name="Rain" parent="Challenges" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.3, 0 )
 visible = false
 
-[node name="Cat" parent="Challenges" instance=ExtResource( 3 )]
+[node name="Cat" parent="Challenges" instance=ExtResource( 4 )]
 editor/display_folded = true
 transform = Transform( -0.217772, 0, -0.206338, 0, 0.3, 0, 0.206338, 0, -0.217772, 0, 0, 0 )
+visible = false
 
 [editable path="Challenges/Cat"]

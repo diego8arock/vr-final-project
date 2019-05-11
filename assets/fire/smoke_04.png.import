@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/fire_01.png-7c99327a99c08663ee459aba0a42cdb6.s3tc.stex"
-path.etc2="res://.import/fire_01.png-7c99327a99c08663ee459aba0a42cdb6.etc2.stex"
+path.s3tc="res://.import/smoke_04.png-c085d245df9212aefa9ea7f99c74aa7c.s3tc.stex"
+path.etc2="res://.import/smoke_04.png-c085d245df9212aefa9ea7f99c74aa7c.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://stations/challenge/fire/fire_01.png"
-dest_files=[ "res://.import/fire_01.png-7c99327a99c08663ee459aba0a42cdb6.s3tc.stex", "res://.import/fire_01.png-7c99327a99c08663ee459aba0a42cdb6.etc2.stex" ]
+source_file="res://assets/fire/smoke_04.png"
+dest_files=[ "res://.import/smoke_04.png-c085d245df9212aefa9ea7f99c74aa7c.s3tc.stex", "res://.import/smoke_04.png-c085d245df9212aefa9ea7f99c74aa7c.etc2.stex" ]
 
 [params]
 

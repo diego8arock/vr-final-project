@@ -1,18 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://actors/player/player.gd" type="Script" id=1]
 [ext_resource path="res://actors/player/camera.gd" type="Script" id=2]
 [ext_resource path="res://actors/hands/RightHand.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/player/crosshair.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleMesh" id=1]
 
 [sub_resource type="CapsuleShape" id=2]
-radius = 0.1
-height = 0.5
-
-[sub_resource type="Environment" id=3]
-
-[sub_resource type="SphereMesh" id=4]
 
 [node name="Player" type="KinematicBody"]
 collision_mask = 2
@@ -24,27 +19,27 @@ mesh = SubResource( 1 )
 material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.478837, 0 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 2 )
 disabled = true
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.08342, -0.649991 )
-environment = SubResource( 3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.43656, -0.649991 )
 script = ExtResource( 2 )
 
 [node name="RayCast" type="RayCast" parent="Camera"]
 enabled = true
-cast_to = Vector3( 0, 0, -10 )
+cast_to = Vector3( 0, 0, -1000 )
 collide_with_areas = true
 
-[node name="MeshInstance" type="MeshInstance" parent="Camera"]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -2.18248 )
-mesh = SubResource( 4 )
-material/0 = null
+[node name="Node" type="Node" parent="Camera"]
+
+[node name="Crosshair" type="Sprite" parent="Camera/Node"]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 4 )
 
 [node name="RightArm" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15944, 0 )
 
 [node name="RightHand" parent="RightArm" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.476, 0, -1.271 )

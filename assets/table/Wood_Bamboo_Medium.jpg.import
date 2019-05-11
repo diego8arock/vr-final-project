@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/Wood_Bamboo_Medium.jpg-d242ebe81dbfc772974581a8466b528a.s3tc.stex"
-path.etc2="res://.import/Wood_Bamboo_Medium.jpg-d242ebe81dbfc772974581a8466b528a.etc2.stex"
+path.s3tc="res://.import/Wood_Bamboo_Medium.jpg-e6d5bec4837622b3a003ab35c31e7f44.s3tc.stex"
+path.etc2="res://.import/Wood_Bamboo_Medium.jpg-e6d5bec4837622b3a003ab35c31e7f44.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://stations/election/table/Wood_Bamboo_Medium.jpg"
-dest_files=[ "res://.import/Wood_Bamboo_Medium.jpg-d242ebe81dbfc772974581a8466b528a.s3tc.stex", "res://.import/Wood_Bamboo_Medium.jpg-d242ebe81dbfc772974581a8466b528a.etc2.stex" ]
+source_file="res://assets/table/Wood_Bamboo_Medium.jpg"
+dest_files=[ "res://.import/Wood_Bamboo_Medium.jpg-e6d5bec4837622b3a003ab35c31e7f44.s3tc.stex", "res://.import/Wood_Bamboo_Medium.jpg-e6d5bec4837622b3a003ab35c31e7f44.etc2.stex" ]
 
 [params]
 

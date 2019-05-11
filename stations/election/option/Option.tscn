@@ -6,7 +6,9 @@
 
 [sub_resource type="BoxShape" id=2]
 
-[node name="Option" type="Area"]
+[node name="Option" type="Area" groups=[
+"options",
+]]
 script = ExtResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]

@@ -1,8 +1,9 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://stations/challenge/rain/trace_01.png" type="Texture" id=1]
+[ext_resource path="res://assets/rain/trace_01.png" type="Texture" id=1]
 [ext_resource path="res://stations/challenge/rain/rain.gd" type="Script" id=2]
-[ext_resource path="res://stations/challenge/rain/smoke_04.png" type="Texture" id=3]
+[ext_resource path="res://assets/rain/smoke_04.png" type="Texture" id=3]
+
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true

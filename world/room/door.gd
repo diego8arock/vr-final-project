@@ -1,20 +1,28 @@
-extends StaticBody
+extends Spatial
+
+onready var selected_material : Material = preload("res://assets/selection/selected_material.tres")
+onready var unselected_maetrial : Material = preload("res://assets/selection/unselected_material.tres")
 
 onready var animation_player = $AnimationPlayer
-onready var door_collition = $CollisionShape
 
 var is_player_inside_room : bool = false
 
 func _ready() -> void:
-	door_collition.disabled = false
+	pass
+	
+func selected() -> void:
+	$SelectedMesh.material_override = selected_material
+	
+func unselected() -> void:
+	$SelectedMesh.material_override = unselected_maetrial
 
 func _on_TriggerPlayer_body_entered(body: Node) -> void:
+	print("trigger")
 	if body.name == "KinematicBody":
-		door_collition.disabled = true
 		animation_player.play("open_door")
 
 
 func _on_TriggerPlayer_body_exited(body: Node) -> void:
+	print("trigger")
 	if body.name == "KinematicBody":
-		door_collition.disabled = false
 		animation_player.play("close_door")

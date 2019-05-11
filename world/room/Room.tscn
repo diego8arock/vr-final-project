@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://stations/election/Election.tscn" type="PackedScene" id=1]
-[ext_resource path="res://stations/challenge/Challenge.tscn" type="PackedScene" id=2]
-[ext_resource path="res://world/room/Wall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://world/room/room.gd" type="Script" id=1]
+[ext_resource path="res://stations/election/Election.tscn" type="PackedScene" id=2]
+[ext_resource path="res://stations/challenge/Challenge.tscn" type="PackedScene" id=3]
 [ext_resource path="res://world/room/Door.tscn" type="PackedScene" id=4]
 
 [sub_resource type="BoxShape" id=1]
@@ -13,7 +13,16 @@ extents = Vector3( 10, 0.1, 10 )
 [sub_resource type="SpatialMaterial" id=3]
 albedo_color = Color( 0, 0, 0, 1 )
 
+[sub_resource type="CubeMesh" id=4]
+
+[sub_resource type="CubeMesh" id=5]
+
+[sub_resource type="CubeMesh" id=6]
+
+[sub_resource type="CubeMesh" id=7]
+
 [node name="Room" type="StaticBody"]
+script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
@@ -23,42 +32,56 @@ transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
-[node name="Election" parent="." instance=ExtResource( 1 )]
+[node name="Election" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.14, 0.1, -7.44168 )
 
-[node name="Challenge" parent="." instance=ExtResource( 2 )]
+[node name="Challenge" parent="." instance=ExtResource( 3 )]
 transform = Transform( -0.00107507, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00107507, -5.104, 0.1, 4.90439 )
 
-[node name="Spatial" type="Spatial" parent="."]
-editor/display_folded = true
-
-[node name="Wall" parent="Spatial" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.077, 4, 10.242 )
-
-[node name="Wall2" parent="Spatial" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.077, 4, -10.067 )
-
-[node name="Wall3" parent="Spatial" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.002, 4, 0.138 )
-
-[node name="Wall4" parent="Spatial" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -0.475952, 0, -2.08045e-08, 9.70882, 4, 6.33197 )
-
-[node name="Wall6" parent="Spatial" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -0.475952, 0, -2.08045e-08, 9.70882, 4, -6.36276 )
-
-[node name="Wall7" parent="Spatial" instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -0.475952, 0, -2.08045e-08, 9.70882, 7.98592, -0.46978 )
-
-[node name="Wall5" parent="Spatial" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, -1.31134e-07, -1, 0, 3, -4.37114e-08, -0.113334, 8.05665, 0.138 )
-
-[node name="OmniLight" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.08177, 6.07112, 4.32738 )
-shadow_enabled = true
-omni_range = 24.7
-omni_shadow_mode = 0
-omni_shadow_detail = 0
-
 [node name="Door" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.84928, 2.03824, 0 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 2, 0 )
+
+[node name="Spatial" type="Spatial" parent="."]
+
+[node name="StaticBody2" type="StaticBody" parent="Spatial"]
+editor/display_folded = true
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 3, 6 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial/StaticBody2"]
+transform = Transform( 4.456, 0, -9.37899e-10, 0, 3, 0, 4.17928e-08, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="StaticBody3" type="StaticBody" parent="Spatial"]
+editor/display_folded = true
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 3, -6 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial/StaticBody3"]
+transform = Transform( 4.456, 0, -9.37899e-10, 0, 3, 0, 4.17928e-08, 0, 0.1, 0, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial"]
+transform = Transform( 10, 0, 0, 0, 3, 0, 0, 0, 0.1, 0, 3, -10 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="Spatial"]
+transform = Transform( 10, 0, 0, 0, 3, 0, 0, 0, 0.1, 0, 3, 10 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="MeshInstance4" type="MeshInstance" parent="Spatial"]
+transform = Transform( -4.37114e-07, 0, 0.1, 0, 3, 0, -10, 0, -4.37114e-09, -10, 3, 0 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="Spatial"]
+transform = Transform( 12, 0, 0, 0, 0.1, 0, 0, 0, 12, -1.93399, 6, 0 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="MeshInstance5" type="MeshInstance" parent="Spatial"]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 1.71077, 10, 5.002, 0 )
+mesh = SubResource( 7 )
+material/0 = null
