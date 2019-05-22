@@ -37,6 +37,7 @@ shape = SubResource( 3 )
 [node name="RoomCat" parent="NavigationMeshInstance" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9815, 0, 0 )
 challenge = 2
+correct_answer = 2
 
 [node name="RoomFire" parent="NavigationMeshInstance" instance=ExtResource( 1 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -30 )
@@ -44,6 +45,7 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -
 [node name="RoomRain" parent="NavigationMeshInstance" instance=ExtResource( 1 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 30, 0, 0 )
 challenge = 1
+correct_answer = 0
 
 [node name="Deposit" parent="NavigationMeshInstance" instance=ExtResource( 2 )]
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2.19223, 10.4335 )

@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/love_heart.obj-67c5a6c99550a7eaecfba760b182706a.mesh"
+
+[deps]
+
+files=[ "res://.import/love_heart.obj-67c5a6c99550a7eaecfba760b182706a.mesh" ]
+
+source_file="res://assets/others/Love Heart/love_heart.obj"
+dest_files=[ "res://.import/love_heart.obj-67c5a6c99550a7eaecfba760b182706a.mesh", "res://.import/love_heart.obj-67c5a6c99550a7eaecfba760b182706a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true
