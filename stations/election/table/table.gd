@@ -13,8 +13,8 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	option.rotate(Vector3(0, 1, 0), (rotation_speed * PI / 180) * delta)
 	
-func set_option_model(model : Node, name : String) -> void:
-	option.set_model(model, name)
+func set_option_model(model : Node, name : String, is_correct_answer : bool) -> void:
+	option.set_model(model, name, is_correct_answer)
 
 func selected() -> void:
 	$SelectedMesh.material_override = selected_material

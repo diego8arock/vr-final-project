@@ -4,7 +4,7 @@ onready var selected_material : Material = preload("res://assets/selection/selec
 onready var unselected_maetrial : Material = preload("res://assets/selection/unselected_material.tres")
 
 func _ready() -> void:
-	pass # Replace with function body.
+	GameManager.deposit_global_position = $Position3D.global_transform.origin
 
 func selected() -> void:
 	DebugManager.debug("deposit", "selected")

@@ -17,10 +17,8 @@ func _ready() -> void:
 
 
 func _start_challenge_1() -> void:	
-	left_table.set_option_model(c1o1_umbrella.instance(), "umbrella")
-	right_table.set_option_model(c1o2_shoe.instance(), "shoe")
-	var options = {"umbrella" : left_table.option, "shoe" : right_table.option, "test" : null }
-	$"/root/GameManager".set_options_in_game(options)
-	pass
+	left_table.set_option_model(c1o1_umbrella.instance(), "umbrella", true)
+	right_table.set_option_model(c1o2_shoe.instance(), "shoe", false)
+
 
 

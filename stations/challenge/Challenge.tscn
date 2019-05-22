@@ -31,7 +31,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.56172, 0 )
 visible = false
 
 [node name="Rain" parent="Challenges" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.3, 0 )
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 3.5575, 0 )
 visible = false
 
 [node name="Cat" parent="Challenges" instance=ExtResource( 4 )]

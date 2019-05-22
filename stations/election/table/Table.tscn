@@ -1,35 +1,35 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/table/table_material.tres" type="Material" id=1]
-[ext_resource path="res://stations/election/option/Option.tscn" type="PackedScene" id=2]
-[ext_resource path="res://stations/election/table/table.gd" type="Script" id=3]
+[ext_resource path="res://stations/election/table/table.gd" type="Script" id=1]
+[ext_resource path="res://assets/table/table_material.tres" type="Material" id=2]
+[ext_resource path="res://stations/election/option/Option.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/table/unselected_material.tres" type="Material" id=4]
 
-[sub_resource type="CubeMesh" id=2]
+[sub_resource type="CubeMesh" id=1]
 
 [node name="Table" type="StaticBody" groups=[
 "tables",
 ]]
-script = ExtResource( 3 )
+script = ExtResource( 1 )
 
 [node name="CSGCombiner" type="CSGCombiner" parent="."]
 
 [node name="Top" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 1, 0, 0, 0, 0.05, 0, 0, 0, 1, 0, 0, 0 )
-material = ExtResource( 1 )
+material = ExtResource( 2 )
 
 [node name="Leg" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 0.05, 0, 0, 0, 1, 0, 0, 0, 0.05, 0, -1, 0 )
-material = ExtResource( 1 )
+material = ExtResource( 2 )
 
 [node name="Support" type="CSGBox" parent="CSGCombiner"]
 transform = Transform( 0.5, 0, 0, 0, 0.05, 0, 0, 0, 0.5, 0, -2, 0 )
-material = ExtResource( 1 )
+material = ExtResource( 2 )
 
-[node name="Option" parent="." instance=ExtResource( 2 )]
+[node name="Option" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.20273, 0 )
 
 [node name="SelectedMesh" type="MeshInstance" parent="."]
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 1.3789 )
-mesh = SubResource( 2 )
+mesh = SubResource( 1 )
 material/0 = ExtResource( 4 )

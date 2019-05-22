@@ -24,6 +24,7 @@ extents = Vector3( 20, 0.001, 20 )
 navmesh = SubResource( 1 )
 
 [node name="StaticBody" type="StaticBody" parent="NavigationMeshInstance"]
+editor/display_folded = true
 
 [node name="MeshInstance" type="MeshInstance" parent="NavigationMeshInstance/StaticBody"]
 transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0 )
@@ -48,7 +49,6 @@ challenge = 1
 transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2.19223, 10.4335 )
 
 [node name="Spatial" type="Spatial" parent="."]
-visible = false
 
 [node name="MeshInstance" type="MeshInstance" parent="Spatial"]
 transform = Transform( 20, 0, 0, 0, 0.1, 0, 0, 0, 20, 0, 6, 0 )

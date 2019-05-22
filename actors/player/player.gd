@@ -1,5 +1,9 @@
 extends KinematicBody
 
+# http://robotics.usc.edu/~parnandi/wii.html
+# lswm
+# sudo wminput 00:19:1D:87:B4:45
+
 #constants
 const GRAVITY = 9.8
 const OPTION_NODE_NAME = "Option"
@@ -50,6 +54,15 @@ func _physics_process(delta: float) -> void:
 			move_and_slide(move_vec.normalized() * move_speed, Vector3(0, 1, 0))	
 
 func _input(event: InputEvent) -> void:
+	
+	if event is InputEventMouseMotion:
+		var motion = event.relative.x
+		if motion > 3:
+			rotation_x = 5
+		elif motion < -3:
+			rotation_x = -5
+		else:
+			rotation_x = 0
 	
 	if event is InputEventKey:
 		

@@ -17,7 +17,7 @@ func _ready() -> void:
 	crosshair_sprite.position = Vector2(posx, posy)
 	
 	clientGlove = vrpnClient.new()
-	clientGlove.connect("Glove14Right@localhost")
+	clientGlove.connect("Glove14Left@localhost")
 	
 	validate_collision()
 
