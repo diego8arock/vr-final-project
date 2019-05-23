@@ -17,12 +17,11 @@ func unselected() -> void:
 	$SelectedMesh.material_override = unselected_maetrial
 
 func _on_TriggerPlayer_body_entered(body: Node) -> void:
-	print("trigger")
+	DebugManager.debug(name, "body entered " + body.name)
 	if body.name == "KinematicBody":
 		animation_player.play("open_door")
 
-
 func _on_TriggerPlayer_body_exited(body: Node) -> void:
-	print("trigger")
+	DebugManager.debug(name, "body exited "+ body.name)
 	if body.name == "KinematicBody":
 		animation_player.play("close_door")

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Lluvia.ogg-c00145f8d7bd2f82c22eec4733eb9b20.oggstr"
+
+[deps]
+
+source_file="res://sounds/Lluvia.ogg"
+dest_files=[ "res://.import/Lluvia.ogg-c00145f8d7bd2f82c22eec4733eb9b20.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

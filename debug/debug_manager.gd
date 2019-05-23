@@ -11,7 +11,7 @@ func _ready():
 		connect("debug_updated", _debug, "_on_signal_updateLabel")
 		connect("debug_delete", _debug, "_on_signal_deleteLabel")
 
-func debug(_node, _text, do_debug = true) -> void:
+func debug(_node, _text, do_debug = false) -> void:
 	if do_debug:
 		emit_signal("debug_updated", _node, str(_text))
 

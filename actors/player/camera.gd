@@ -97,16 +97,18 @@ func action_open() -> void:
 		hand.get_node("AnimationPlayer").play_backwards("close")
 		yield(hand.get_node("AnimationPlayer"), "animation_finished")
 		collider_selected.set_origin(GameManager.deposit_model)
-		GameManager.deposit.play_sound(collider_selected.is_correct_option)
-		yield(GameManager.deposit, "finished")		
 		GameManager.gui.set_message("CORRECT!" if collider_selected.is_correct_option else "INCORRECT!")
 		GameManager.score += 10 if collider_selected.is_correct_option else -10
 		GameManager.gui.update_score()
-		is_hand_closed = false
-		yield(get_tree().create_timer(1.0), "timeout")
-		GameManager.gui.set_message("")
-		collider_selected.hide()
-		collider_selected.disable()
+		GameManager.deposit.play_sound(collider_selected.is_correct_option)
+		yield(GameManager.deposit, "finished")		
+		if GameManager.validate_end_game(collider_selected.is_correct_option):
+			is_hand_closed = false
+			yield(get_tree().create_timer(1.0), "timeout")
+			GameManager.gui.set_message("")
+			collider_selected.hide()
+			collider_selected.disable()
+		
 		
 			
 			

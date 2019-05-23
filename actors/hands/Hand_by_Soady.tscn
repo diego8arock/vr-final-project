@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://actors/hands/Hand_by_Soady.material" type="Material" id=1]
 
@@ -18,8 +18,12 @@ surfaces/0 = {
 "vertex_count": 2730
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "close"
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.286275, 0.227451, 0.709804, 1 )
+metallic = 0.12
+metallic_specular = 0.68
+
+[sub_resource type="Animation" id=3]
 length = 1.5
 tracks/0/type = "transform"
 tracks/0/path = NodePath("metarig_001:f_index.01.R")
@@ -282,7 +286,7 @@ bones/20/bound_children = [  ]
 
 [node name="ZBrush_defualt_group" type="MeshInstance" parent="metarig_001"]
 mesh = SubResource( 1 )
-material/0 = null
+material/0 = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/close = SubResource( 2 )
+anims/close = SubResource( 3 )

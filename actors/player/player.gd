@@ -35,6 +35,7 @@ var rotation_x = 0
 
 func _ready() -> void:
 	add_to_group("units")
+	GameManager.player = $Camera
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta: float) -> void:

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/melodyloops-preview-new-checkpoint-3m30s.ogg-5e622f46e9a0497f04f6930c820206de.oggstr"
+
+[deps]
+
+source_file="res://sounds/melodyloops-preview-new-checkpoint-3m30s.ogg"
+dest_files=[ "res://.import/melodyloops-preview-new-checkpoint-3m30s.ogg-5e622f46e9a0497f04f6930c820206de.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

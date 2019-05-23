@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Maullido.ogg-7cce8daf6fd49d97f128d9bfcfff8fca.oggstr"
+
+[deps]
+
+source_file="res://sounds/Maullido.ogg"
+dest_files=[ "res://.import/Maullido.ogg-7cce8daf6fd49d97f128d9bfcfff8fca.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

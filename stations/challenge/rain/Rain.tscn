@@ -1,9 +1,9 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/rain/trace_01.png" type="Texture" id=1]
 [ext_resource path="res://stations/challenge/rain/rain.gd" type="Script" id=2]
 [ext_resource path="res://assets/rain/smoke_04.png" type="Texture" id=3]
-
+[ext_resource path="res://sounds/Lluvia.ogg" type="AudioStream" id=4]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_unshaded = true
@@ -48,7 +48,6 @@ emission_box_extents = Vector3( 3, 0.2, 3 )
 spread = 100.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 0.2
-angular_velocity = 0.0
 
 [sub_resource type="PlaneMesh" id=9]
 
@@ -80,3 +79,9 @@ material_override = SubResource( 7 )
 amount = 250
 process_material = SubResource( 8 )
 draw_pass_1 = SubResource( 9 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+max_distance = 20.0
+out_of_range_mode = 1

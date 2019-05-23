@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/FireCrackle.ogg-25d79e7b2527524abf8fb00e425e3a96.oggstr"
+
+[deps]
+
+source_file="res://sounds/FireCrackle.ogg"
+dest_files=[ "res://.import/FireCrackle.ogg-25d79e7b2527524abf8fb00e425e3a96.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

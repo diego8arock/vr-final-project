@@ -100,6 +100,7 @@ transform = Transform( 1.62295, 0, 0, 0, 11.4995, 0, 0, 0, 1, 0, 0.315714, 0 )
 script = ExtResource( 9 )
 
 [node name="CollisionShape" type="CollisionShape" parent="TriggerPlayer"]
+transform = Transform( 0.86168, 0, 0, 0, 2.20676, 0, 0, 0, 1.3755, 0, 0, 0 )
 shape = SubResource( 7 )
 
 [node name="Position3D" type="Position3D" parent="TriggerPlayer"]

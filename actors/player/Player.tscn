@@ -1,13 +1,16 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://actors/player/player.gd" type="Script" id=1]
 [ext_resource path="res://actors/player/camera.gd" type="Script" id=2]
 [ext_resource path="res://assets/player/crosshair.png" type="Texture" id=3]
 [ext_resource path="res://actors/hands/Hand_by_Soady.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sounds/1. CB1-01 N. Sanity Beach.ogg" type="AudioStream" id=5]
 
 [sub_resource type="CapsuleMesh" id=1]
 
 [sub_resource type="CapsuleShape" id=2]
+
+[sub_resource type="SphereShape" id=3]
 
 [node name="Player" type="KinematicBody"]
 collision_mask = 2
@@ -47,4 +50,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15944, 0 )
 
 [node name="Simple_Hand" parent="RightArm" instance=ExtResource( 4 )]
 transform = Transform( -0.0830421, -0.0434227, -0.0349068, 0.0364039, 0.00513925, -0.0929965, 0.0421755, -0.0899336, 0.0115398, 0.609085, -0.0765772, -1.35534 )
-visible = false
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+pause_mode = 2
+stream = ExtResource( 5 )
+autoplay = true
+bus = "Player"
+
+[node name="KinematicBody" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0971, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
+shape = SubResource( 3 )
