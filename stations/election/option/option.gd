@@ -32,3 +32,5 @@ func set_origin(_new_origin : Node) -> void:
 	var child : Spatial = get_children()[2]
 	child.scale = Vector3(0.5,0.5,0.5)
 
+func disable() -> void:
+	$CollisionShape.disabled = true

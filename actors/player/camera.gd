@@ -6,9 +6,10 @@ onready var selectors = get_tree().get_nodes_in_group("selectors")
 onready var options = get_tree().get_nodes_in_group("options")
 onready var crosshair_sprite = $Node/Crosshair
 onready var hand = get_parent().get_node("RightArm/Simple_Hand")
+onready var player = get_parent()
 
 var is_hand_closed : bool = false
-
+var collider_selected
 const vrpnClient = preload("res://bin/vrpnClient.gdns")
 var clientGlove = null
 
@@ -46,8 +47,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_action_pressed("ui_select"):	
 		if not is_hand_closed:		
 			action_close()
-			is_hand_closed = true
 		else:
+			action_open()
 			is_hand_closed = false
 
 func validate_collision() -> void:
@@ -81,19 +82,32 @@ func action_close() -> void:
 				hand.get_node("AnimationPlayer").play("close")
 				yield(hand.get_node("AnimationPlayer"), "animation_finished")
 				is_hand_closed = true
-			collider.set_origin($Position3D)
+			collider_selected = collider
+			collider_selected.set_origin($Position3D)
 			get_tree().call_group("units", "move_to", GameManager.deposit_global_position)		
 			
 			
 func action_open() -> void:		
 	
-	if ray_cast.is_colliding():	
-		var collider = ray_cast.get_collider()
-		DebugManager.debug("collider", collider)
-			
-		if collider.is_in_group("selectors"):
-			var position = collider.get_node("Position3D").global_transform.origin
-			get_tree().call_group("units", "move_to", position)			
+	var dx = GameManager.deposit_global_position.x - player.global_transform.origin.x
+	var dy = GameManager.deposit_global_position.y - player.global_transform.origin.y
+	var distance = sqrt( pow(dx,2) + pow(dy,2) )
+	
+	if distance < 0.5:
+		hand.get_node("AnimationPlayer").play_backwards("close")
+		yield(hand.get_node("AnimationPlayer"), "animation_finished")
+		collider_selected.set_origin(GameManager.deposit_model)
+		GameManager.deposit.play_sound(collider_selected.is_correct_option)
+		yield(GameManager.deposit, "finished")		
+		GameManager.gui.set_message("CORRECT!" if collider_selected.is_correct_option else "INCORRECT!")
+		GameManager.score += 10 if collider_selected.is_correct_option else -10
+		GameManager.gui.update_score()
+		is_hand_closed = false
+		yield(get_tree().create_timer(1.0), "timeout")
+		GameManager.gui.set_message("")
+		collider_selected.hide()
+		collider_selected.disable()
+		
 			
 			
 			

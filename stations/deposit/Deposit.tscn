@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://stations/deposit/deposit.gd" type="Script" id=1]
 [ext_resource path="res://assets/table/Wood_Bamboo_Medium.jpg" type="Texture" id=2]
 [ext_resource path="res://assets/table/unselected_material.tres" type="Material" id=3]
+[ext_resource path="res://sounds/Explosion18.ogg" type="AudioStream" id=4]
+[ext_resource path="res://sounds/Explosion17.ogg" type="AudioStream" id=5]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 2 )
@@ -53,3 +55,13 @@ shape = SubResource( 5 )
 
 [node name="Position3D" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.04688, 5.7558 )
+
+[node name="ModelPosition" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02742, 0 )
+
+[node name="CorrectSound" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25031, 0 )
+stream = ExtResource( 4 )
+
+[node name="WrongSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 5 )

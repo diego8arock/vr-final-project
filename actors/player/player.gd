@@ -39,19 +39,19 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	#camera and body rotation
 	rotate_y(deg2rad(20)* - rotation_x * delta)
-#	player_cam.rotate_x(deg2rad(20) * - mouse_motion.y * sensitivity_y * delta)
-#	player_cam.rotation.x = clamp(player_cam.rotation.x, deg2rad(-47), deg2rad(47))
-#	player_arm.rotation.x = lerp(player_arm.rotation.x, player_cam.rotation.x, 0.2)
-#	mouse_motion = Vector2()
 	
 	if path_ind < path.size():
+		DebugManager.debug(name + "-path", "moving")
+		GameManager.is_player_moving = true
 		var move_vec = (path[path_ind] - global_transform.origin)
 		if move_vec.length() < 0.1:
 			path_ind += 1
 		else:
-			move_and_slide(move_vec.normalized() * move_speed, Vector3(0, 1, 0))	
+			move_and_slide(move_vec.normalized() * move_speed, Vector3(0, 1, 0))
+	else:
+		DebugManager.debug(name + "-path", "not_moving")	
+		GameManager.is_player_moving = false
 
 func _input(event: InputEvent) -> void:
 	
@@ -72,26 +72,6 @@ func _input(event: InputEvent) -> void:
 			rotation_x = 5
 		if Input.is_action_just_released("ui_right") or Input.is_action_just_released("ui_left"):
 			rotation_x = 0
-
-#func _axis() -> Vector3:
-#	var direction = Vector3()
-#
-#	if Input.is_key_pressed(KEY_W):
-#		direction -= get_global_transform().basis.z.normalized()
-#
-#	if Input.is_key_pressed(KEY_S):
-#		direction += get_global_transform().basis.z.normalized()
-#
-#	if Input.is_key_pressed(KEY_A):
-#		direction -= get_global_transform().basis.x.normalized()
-#
-#	if Input.is_key_pressed(KEY_D):
-#		direction += get_global_transform().basis.x.normalized()
-#
-#	return direction.normalized()
-	
-func _detect_ray_cast_collision() -> bool:
-	return false
 	
 func move_to(target_pos):
 	path = nav.get_simple_path(global_transform.origin, target_pos)
