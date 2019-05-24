@@ -8,6 +8,9 @@ onready var crosshair_sprite = $Node/Crosshair
 onready var hand = get_parent().get_node("RightArm/Simple_Hand")
 onready var player = get_parent()
 
+var is_processing_close : bool = false
+var is_processing_open : bool = false
+
 var is_hand_closed : bool = false
 var collider_selected
 const vrpnClient = preload("res://bin/vrpnClient.gdns")
@@ -35,12 +38,18 @@ func _process(delta: float) -> void:
 		if ray_cast.is_colliding():	
 			DebugManager.debug("colliding with", ray_cast.get_collider())
 			
-		if adjust_sensor > 5:
-			DebugManager.debug("hand", "close")
-			action_close()
+		if adjust_sensor > 4.8:
+			if not is_processing_close:
+				DebugManager.debug("hand", "close")
+				is_processing_close = true
+				action_close()
+				
 		else:
-			DebugManager.debug("hand", "open")
-			action_open()				
+			if not is_processing_open:
+				DebugManager.debug("hand", "open")
+				is_processing_open = true
+				action_open()			
+			
 
 func _input(event: InputEvent) -> void:
 	
@@ -68,6 +77,10 @@ func validate_collision() -> void:
 	
 func action_close() -> void:
 	
+	if collider_selected: 
+		is_processing_close = false
+		return
+	
 	if ray_cast.is_colliding():	
 		var collider = ray_cast.get_collider()
 		DebugManager.debug("collider", collider)
@@ -84,7 +97,9 @@ func action_close() -> void:
 				is_hand_closed = true
 			collider_selected = collider
 			collider_selected.set_origin($Position3D)
-			get_tree().call_group("units", "move_to", GameManager.deposit_global_position)		
+			get_tree().call_group("units", "move_to", GameManager.deposit_global_position)
+	is_processing_close = false
+	  		
 			
 			
 func action_open() -> void:		
@@ -94,21 +109,26 @@ func action_open() -> void:
 	var distance = sqrt( pow(dx,2) + pow(dy,2) )
 	
 	if distance < 0.5:
-		hand.get_node("AnimationPlayer").play_backwards("close")
-		yield(hand.get_node("AnimationPlayer"), "animation_finished")
-		collider_selected.set_origin(GameManager.deposit_model)
-		GameManager.gui.set_message("CORRECT!" if collider_selected.is_correct_option else "INCORRECT!")
-		GameManager.score += 10 if collider_selected.is_correct_option else -10
-		GameManager.gui.update_score()
-		GameManager.deposit.play_sound(collider_selected.is_correct_option)
-		yield(GameManager.deposit, "finished")		
-		if GameManager.validate_end_game(collider_selected.is_correct_option):
-			is_hand_closed = false
-			yield(get_tree().create_timer(1.0), "timeout")
-			GameManager.gui.set_message("")
-			collider_selected.hide()
-			collider_selected.disable()
+		if collider_selected:
+			DebugManager.debug(name + "collider-selected", collider_selected)
+			hand.get_node("AnimationPlayer").play_backwards("close")
+			yield(hand.get_node("AnimationPlayer"), "animation_finished")
+			collider_selected.set_origin(GameManager.deposit_model)
+			GameManager.gui.set_message("CORRECT!" if collider_selected.is_correct_option else "INCORRECT!")
+			GameManager.score += 10 if collider_selected.is_correct_option else -10
+			GameManager.gui.update_score()
+			GameManager.deposit.play_sound(collider_selected.is_correct_option)
+			yield(GameManager.deposit, "finished")		
+			if GameManager.validate_end_game(collider_selected.is_correct_option):
+				is_hand_closed = false
+				yield(get_tree().create_timer(1.0), "timeout")
+				GameManager.gui.set_message("")
+				collider_selected.hide()
+				collider_selected.disable()
+				collider_selected = null
+	is_processing_open = false		
 		
+			
 		
 			
 			

@@ -11,22 +11,21 @@ polygons = [ PoolIntArray( 3, 0, 2 ), PoolIntArray( 0, 1, 2 ), PoolIntArray( 6, 
 
 [sub_resource type="PlaneMesh" id=2]
 
-[sub_resource type="SpatialMaterial" id=7]
-albedo_color = Color( 0.929412, 0.968627, 0.647059, 1 )
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.356863, 0.156863, 0.0509804, 1 )
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=4]
 extents = Vector3( 20, 0.001, 20 )
-
-[sub_resource type="CubeMesh" id=4]
 
 [sub_resource type="CubeMesh" id=5]
 
 [sub_resource type="CubeMesh" id=6]
 
+[sub_resource type="CubeMesh" id=7]
+
 [node name="Lobby" type="Navigation"]
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="."]
-editor/display_folded = true
 navmesh = SubResource( 1 )
 
 [node name="StaticBody" type="StaticBody" parent="NavigationMeshInstance"]
@@ -34,10 +33,10 @@ navmesh = SubResource( 1 )
 [node name="MeshInstance" type="MeshInstance" parent="NavigationMeshInstance/StaticBody"]
 transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0 )
 mesh = SubResource( 2 )
-material/0 = SubResource( 7 )
+material/0 = SubResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="NavigationMeshInstance/StaticBody"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="RoomCat" parent="NavigationMeshInstance" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9815, 0, 0 )
@@ -59,40 +58,40 @@ transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 2.19
 
 [node name="MeshInstance" type="MeshInstance" parent="Spatial"]
 transform = Transform( 20, 0, 0, 0, 0.1, 0, 0, 0, 20, 0, 6, 0 )
-mesh = SubResource( 4 )
+mesh = SubResource( 5 )
 material/0 = ExtResource( 3 )
 
 [node name="MeshInstance2" type="MeshInstance" parent="Spatial"]
 transform = Transform( 20, 0, 0, 0, 3, 0, 0, 0, 0.1, 0, 3, 20 )
-mesh = SubResource( 5 )
+mesh = SubResource( 6 )
 material/0 = ExtResource( 4 )
 
 [node name="MeshInstance3" type="MeshInstance" parent="Spatial"]
 transform = Transform( 0.1, 0, 0, 0, 3, 0, 0, 0, 5, 20, 3, 15 )
-mesh = SubResource( 6 )
+mesh = SubResource( 7 )
 material/0 = ExtResource( 4 )
 
 [node name="MeshInstance4" type="MeshInstance" parent="Spatial"]
 transform = Transform( 0.1, 0, 0, 0, 3, 0, 0, 0, 5, -20, 3, 15 )
-mesh = SubResource( 6 )
+mesh = SubResource( 7 )
 material/0 = ExtResource( 4 )
 
 [node name="MeshInstance5" type="MeshInstance" parent="Spatial"]
 transform = Transform( 0.1, 0, 0, 0, 3, 0, 0, 0, 5, -20, 3, -15 )
-mesh = SubResource( 6 )
+mesh = SubResource( 7 )
 material/0 = ExtResource( 4 )
 
 [node name="MeshInstance6" type="MeshInstance" parent="Spatial"]
 transform = Transform( 0.1, 0, 0, 0, 3, 0, 0, 0, 5, 20, 3, -15 )
-mesh = SubResource( 6 )
+mesh = SubResource( 7 )
 material/0 = ExtResource( 4 )
 
 [node name="MeshInstance7" type="MeshInstance" parent="Spatial"]
 transform = Transform( -4.37114e-09, 0, 5, 0, 3, 0, -0.1, 0, -2.18557e-07, 15, 3, -20 )
-mesh = SubResource( 6 )
+mesh = SubResource( 7 )
 material/0 = ExtResource( 4 )
 
 [node name="MeshInstance8" type="MeshInstance" parent="Spatial"]
 transform = Transform( -4.37114e-09, 0, 5, 0, 3, 0, -0.1, 0, -2.18557e-07, -15, 3, -20 )
-mesh = SubResource( 6 )
+mesh = SubResource( 7 )
 material/0 = ExtResource( 4 )

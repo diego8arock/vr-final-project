@@ -13,7 +13,7 @@ extents = Vector3( 10, 0.1, 10 )
 [sub_resource type="PlaneMesh" id=2]
 
 [sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0, 0, 0, 1 )
+albedo_color = Color( 0.0823529, 0.0980392, 0.407843, 1 )
 
 [sub_resource type="CubeMesh" id=4]
 
@@ -45,7 +45,6 @@ transform = Transform( -0.00107507, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00107
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 2, 0 )
 
 [node name="Spatial" type="Spatial" parent="."]
-editor/display_folded = true
 
 [node name="StaticBody2" type="StaticBody" parent="Spatial"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 3, 6 )

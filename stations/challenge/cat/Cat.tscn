@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/cat/MatYel.material" type="Material" id=7]
 [ext_resource path="res://assets/cat/MatGre.material" type="Material" id=8]
 [ext_resource path="res://assets/cat/MatHearInt.material" type="Material" id=9]
-[ext_resource path="res://sounds/Cat Purring-SoundBible.com-59878677.ogg" type="AudioStream" id=10]
+[ext_resource path="res://sounds/cat_meow2.ogg" type="AudioStream" id=10]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "head.Data"

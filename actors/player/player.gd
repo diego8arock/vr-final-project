@@ -58,9 +58,9 @@ func _input(event: InputEvent) -> void:
 	
 	if event is InputEventMouseMotion:
 		var motion = event.relative.x
-		if motion > 3:
+		if motion > 2.5:
 			rotation_x = 5
-		elif motion < -3:
+		elif motion < -2.5:
 			rotation_x = -5
 		else:
 			rotation_x = 0
